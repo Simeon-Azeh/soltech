@@ -6,6 +6,7 @@ import { TiLocationArrow } from "react-icons/ti";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { BiMenuAltRight } from "react-icons/bi";
 import { IoCloseOutline } from "react-icons/io5";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 import Button from "./Button";
 
@@ -85,7 +86,7 @@ const NavBar = () => {
             <Button
               id="product-button"
               title="CONTESTS"
-              rightIcon={<TiLocationArrow />}
+              rightIcon={<IoIosArrowRoundForward />}
               containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
             />
           </div>
@@ -130,15 +131,15 @@ const NavBar = () => {
             {/* Hamburger Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className="flex items-center ml-4 -mt-2 -mt-5 text-white md:hidden"
+              className="flex items-center ml-4 -mt-2 text-white md:hidden"
             >
-              {isMobileMenuOpen ? <IoCloseOutline size={24} /> : <BiMenuAltRight size={24} />}
+              {isMobileMenuOpen ? <IoCloseOutline size={24} /> : <BiMenuAltRight size={32} />}
             </button>
           </div>
         </nav>
 
         {/* Mobile Menu */}
-        <div className={clsx("mobile-menu md:hidden ", { open: isMobileMenuOpen })}>
+        <div className={clsx("mobile-menu flex md:hidden ", { open: isMobileMenuOpen })}>
           {navItems.map((item, index) => (
             <a
               key={index}

@@ -80,12 +80,12 @@ const Hero = () => {
     });
   });
 
-  const getVideoSrc = (index) => `videos/her-${index}.mp4`;
+  const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
 
   return (
     <div className="relative w-screen overflow-x-hidden h-dvh">
       {loading && (
-        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
+        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-red-600">
           {/* https://uiverse.io/G4b413l/tidy-walrus-92 */}
           <div className="three-body">
             <div className="three-body__dot"></div>
@@ -158,7 +158,7 @@ const Hero = () => {
               id="watch-trailer"
               title="Join Membership"
               leftIcon={<TiLocationArrow />}
-              containerClass="bg-yellow-300 flex-center gap-1"
+              containerClass="bg-white flex-center gap-1"
             />
           </div>
         </div>

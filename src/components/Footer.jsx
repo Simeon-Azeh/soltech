@@ -22,7 +22,7 @@ const Footer = () => {
         {/* Services */}
         <div className="flex flex-col items-center md:items-start">
           <h4 className="mb-2 text-lg font-medium text-white">Our Services</h4>
-          <ul className="flex flex-col gap-2 text-sm">
+          <ul className="flex flex-col gap-2 text-sm text-center md:text-left">
             <li>
               <a
                 href="#tech-training"

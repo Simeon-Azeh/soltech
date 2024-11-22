@@ -49,7 +49,7 @@ Soltech brings together learners, gamers, and innovators into a unified hub wher
       <div className="w-screen h-dvh" id="clip">
         <div className="mask-clip-path about-image">
           <img
-            src="img/about.svg"
+            src="img/about.webp"
             alt="Background"
             className="absolute top-0 left-0 object-cover size-full"
           />
