@@ -14,8 +14,8 @@ const navItems = ["Home", "Services", "Shop", "Events", "Contact"];
 
 const NavBar = () => {
   // State for toggling audio and visual indicator
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const [isIndicatorActive, setIsIndicatorActive] = useState(false);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(true); // Set initial state to true
+  const [isIndicatorActive, setIsIndicatorActive] = useState(true); // Set initial state to true
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Refs for audio and navigation container
@@ -114,6 +114,7 @@ const NavBar = () => {
                 className="hidden"
                 src="/audio/loop.mp3"
                 loop
+                autoPlay // Ensure autoplay is enabled
               />
               {[1, 2, 3, 4].map((bar) => (
                 <div
