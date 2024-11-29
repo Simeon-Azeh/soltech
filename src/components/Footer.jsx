@@ -57,7 +57,7 @@ const Footer = () => {
                 href="#tech-training"
                 className="transition-colors duration-300 hover:text-gray-500"
               >
-                Tech Training
+                FAQs
               </a>
             </li>
             <li>
@@ -65,7 +65,7 @@ const Footer = () => {
                 href="#gaming"
                 className="transition-colors duration-300 hover:text-gray-500"
               >
-                Gaming
+               Contact
               </a>
             </li>
             <li>
@@ -73,7 +73,7 @@ const Footer = () => {
                 href="#workspaces"
                 className="transition-colors duration-300 hover:text-gray-500"
               >
-                Workspaces & Hubs
+                Membership
               </a>
             </li>
           </ul>

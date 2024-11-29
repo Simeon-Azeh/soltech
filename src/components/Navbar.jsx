@@ -14,7 +14,7 @@ import Button from "./Button";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
-  { name: "Shop", path: "/shop" },
+  { name: "Membership", path: "/membership" },
   { name: "Events", path: "/events" },
   { name: "Contact", path: "/contact" },
 ];
