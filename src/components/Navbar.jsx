@@ -2,6 +2,7 @@ import clsx from "clsx";
 import gsap from "gsap";
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { TiLocationArrow } from "react-icons/ti";
 import { BiMenuAltRight } from "react-icons/bi";
 import { IoCloseOutline } from "react-icons/io5";
@@ -10,7 +11,13 @@ import { FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
 
 import Button from "./Button";
 
-const navItems = ["Home", "Services", "Shop", "Events", "Contact"];
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" },
+  { name: "Shop", path: "/shop" },
+  { name: "Events", path: "/events" },
+  { name: "Contact", path: "/contact" },
+];
 
 const NavBar = () => {
   // State for toggling audio and visual indicator
@@ -96,30 +103,30 @@ const NavBar = () => {
 
             {isDropdownOpen && (
               <div className="absolute left-0 w-48 mt-2 bg-black rounded-lg shadow-lg top-full dropdown-menu">
-                <a
-                  href="#profile"
+                <Link
+                  to="/profile"
                   className="flex items-center gap-2 p-2 hover:bg-gray-700"
                 >
                   <FaUser /> Home
-                </a>
-                <a
-                  href="#settings"
+                </Link>
+                <Link
+                  to="/settings"
                   className="flex items-center gap-2 p-2 hover:bg-gray-700"
                 >
                   <FaCog /> Download 
-                </a>
-                <a
-                  href="#logout"
+                </Link>
+                <Link
+                  to="/logout"
                   className="flex items-center gap-2 p-2 hover:bg-gray-700"
                 >
                   <FaSignOutAlt /> Share
-                </a>
-                <a
-                  href="#logout"
+                </Link>
+                <Link
+                  to="/logout"
                   className="flex items-center gap-2 p-2 hover:bg-gray-700"
                 >
                   <FaSignOutAlt /> Demo
-                </a>
+                </Link>
               </div>
             )}
 
@@ -135,13 +142,13 @@ const NavBar = () => {
           <div className="flex items-center h-full">
             <div className="items-center hidden gap-4 md:flex">
               {navItems.map((item, index) => (
-                <a
+                <Link
                   key={index}
-                  href={`#${item.toLowerCase()}`}
+                  to={item.path}
                   className="nav-hover-btn"
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </Link>
               ))}
               <Button
                 id="login-button"
@@ -193,15 +200,15 @@ const NavBar = () => {
             <IoCloseOutline size={32} />
           </button>
           {navItems.map((item, index) => (
-            <a
+            <Link
               key={index}
-              href={`#${item.toLowerCase()}`}
+              to={item.path}
               className="mb-2 nav-hover-btn"
               onClick={toggleMobileMenu}
               style={{ "--i": index }}
             >
-              {item}
-            </a>
+              {item.name}
+            </Link>
           ))}
           <Button
             id="product-button-mobile"
