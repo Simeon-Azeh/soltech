@@ -1,10 +1,10 @@
 import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
 
 const socialLinks = [
-  { href: "https://facebook.com", icon: <FaFacebook />, label: "Facebook" },
-  { href: "https://instagram.com", icon: <FaInstagram />, label: "Instagram" },
-  { href: "https://youtube.com", icon: <FaYoutube />, label: "YouTube" },
-  { href: "https://linkedin.com", icon: <FaLinkedin />, label: "LinkedIn" },
+  { href: "https://facebook.com/SoltechAfrica", icon: <FaFacebook />, label: "Facebook" },
+  { href: "https://instagram.com/SoltechAfrica", icon: <FaInstagram />, label: "Instagram" },
+  { href: "https://youtube.com/SoltechAfrica", icon: <FaYoutube />, label: "YouTube" },
+  { href: "https://linkedin.com/company/SoltechAfrica", icon: <FaLinkedin />, label: "LinkedIn" },
 ];
 
 const Footer = () => {
@@ -22,6 +22,35 @@ const Footer = () => {
         {/* Services */}
         <div className="flex flex-col items-center md:items-start">
           <h4 className="mb-2 text-lg font-medium text-white">Our Services</h4>
+          <ul className="flex flex-col gap-2 text-sm text-center md:text-left">
+            <li>
+              <a
+                href="#tech-training"
+                className="transition-colors duration-300 hover:text-gray-500"
+              >
+                Tech Training
+              </a>
+            </li>
+            <li>
+              <a
+                href="#gaming"
+                className="transition-colors duration-300 hover:text-gray-500"
+              >
+                Gaming
+              </a>
+            </li>
+            <li>
+              <a
+                href="#workspaces"
+                className="transition-colors duration-300 hover:text-gray-500"
+              >
+                Workspaces & Hubs
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="flex flex-col items-center md:items-start">
+          <h4 className="mb-2 text-lg font-medium text-white">Quick links</h4>
           <ul className="flex flex-col gap-2 text-sm text-center md:text-left">
             <li>
               <a
@@ -70,16 +99,16 @@ const Footer = () => {
           <p className="mt-4 text-sm">
             Email:{" "}
             <a
-              href="mailto:contact@soltech.com"
+              href="mailto:contact@soltechafrica.com"
               className="font-medium transition-colors duration-300 hover:text-gray-500"
             >
-              contact@soltech.com
+              contact@soltechafrica.com
             </a>
           </p>
           <p className="text-sm">
             Phone:{" "}
             <a
-              href="tel:+123456789"
+              href="tel:+237670349922"
               className="font-medium transition-colors duration-300 hover:text-gray-500"
             >
               +237 670 349 922
