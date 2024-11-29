@@ -1,8 +1,8 @@
-import { FaDiscord, FaTwitter, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
 
 const socialLinks = [
-  { href: "https://discord.com", icon: <FaDiscord />, label: "Discord" },
-  { href: "https://twitter.com", icon: <FaTwitter />, label: "Twitter" },
+  { href: "https://facebook.com", icon: <FaFacebook />, label: "Facebook" },
+  { href: "https://instagram.com", icon: <FaInstagram />, label: "Instagram" },
   { href: "https://youtube.com", icon: <FaYoutube />, label: "YouTube" },
   { href: "https://linkedin.com", icon: <FaLinkedin />, label: "LinkedIn" },
 ];

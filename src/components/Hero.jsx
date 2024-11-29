@@ -12,28 +12,29 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [hasClicked, setHasClicked] = useState(false);
-
-  const [loading, setLoading] = useState(true);
-  const [loadedVideos, setLoadedVideos] = useState(0);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [playVideo, setPlayVideo] = useState(false);
 
   const totalVideos = 4;
   const nextVdRef = useRef(null);
+  const hoverVdRef = useRef(null);
 
   const handleVideoLoad = () => {
-    setLoadedVideos((prev) => prev + 1);
+    setVideoLoaded(true);
   };
-
-  useEffect(() => {
-    if (loadedVideos === totalVideos - 1) {
-      setLoading(false);
-    }
-  }, [loadedVideos]);
 
   const handleMiniVdClick = () => {
     setHasClicked(true);
-
     setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setPlayVideo(true);
+    }, 15000); // 15 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useGSAP(
     () => {
@@ -80,21 +81,10 @@ const Hero = () => {
     });
   });
 
-  const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
+  const getVideoSrc = (index) => `videos/herr-${index}.mp4`;
 
   return (
     <div className="relative w-screen overflow-x-hidden h-dvh">
-      {loading && (
-        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-slate-50">
-          {/* https://uiverse.io/G4b413l/tidy-walrus-92 */}
-          <div className="three-body">
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-          </div>
-        </div>
-      )}
-
       <div
         id="video-frame"
         className="relative z-10 w-screen overflow-hidden rounded-lg h-dvh bg-blue-75"
@@ -106,45 +96,51 @@ const Hero = () => {
                 onClick={handleMiniVdClick}
                 className="transition-all duration-500 ease-in origin-center scale-50 opacity-0 hover:scale-100 hover:opacity-100"
               >
+                <img
+                  src="img/background.png"
+                  alt="Loading preview"
+                  className="object-cover object-center origin-center scale-150 size-64"
+                />
                 <video
-                  ref={nextVdRef}
+                  ref={hoverVdRef}
                   src={getVideoSrc((currentIndex % totalVideos) + 1)}
                   loop
                   muted
-                  id="current-video"
-                  className="object-cover object-center origin-center scale-150 size-64"
-                  onLoadedData={handleVideoLoad}
+                  id="hover-video"
+                  className="absolute inset-0 object-cover object-center w-full h-full origin-center scale-150 opacity-0 size-64 hover:opacity-100"
+                  onMouseEnter={() => hoverVdRef.current.play()}
+                  onMouseLeave={() => hoverVdRef.current.pause()}
                 />
               </div>
             </VideoPreview>
           </div>
 
-          <video
-            ref={nextVdRef}
-            src={getVideoSrc(currentIndex)}
-            loop
-            muted
-            id="next-video"
-            className="absolute z-20 invisible object-cover object-center absolute-center size-64"
-            onLoadedData={handleVideoLoad}
-          />
-          <video
-            src={getVideoSrc(
-              currentIndex === totalVideos - 1 ? 1 : currentIndex
-            )}
-            autoPlay
-            loop
-            muted
-            className="absolute top-0 left-0 object-cover object-center size-full"
-            onLoadedData={handleVideoLoad}
-          />
+          {playVideo ? (
+            <video
+              ref={nextVdRef}
+              src={getVideoSrc(currentIndex)}
+              loop
+              muted
+              autoPlay
+              id="next-video"
+              className="absolute top-0 left-0 object-cover object-center w-full h-full"
+              onLoadedData={handleVideoLoad}
+            />
+          ) : (
+            <img
+              src="img/background.png"
+              alt="Loading preview"
+              className="absolute top-0 left-0 object-cover object-center w-full h-full"
+              style={{ objectFit: "cover" }}
+            />
+          )}
         </div>
 
         <h1 className="absolute z-40 special-font hero-heading bottom-5 right-5 text-blue-75">
           TECH<b> & </b>GAMING
         </h1>
 
-        <div className="absolute top-0 left-0 z-40 size-full">
+        <div className="absolute top-0 left-0 z-40 w-full h-full">
           <div className="px-5 mt-24 sm:px-10">
             <h1 className="text-blue-100 special-font hero-heading">
               redefi<b>n</b>e
