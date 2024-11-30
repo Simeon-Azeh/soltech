@@ -8,6 +8,11 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { IoCloseOutline } from "react-icons/io5";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
+import { GrHomeRounded } from "react-icons/gr";
+import { FiDownloadCloud } from "react-icons/fi";
+import { RiShareForwardLine } from "react-icons/ri";
+import { CiPlay1 } from "react-icons/ci";
+
 
 import Button from "./Button";
 
@@ -102,30 +107,30 @@ const NavBar = () => {
             />
 
             {isDropdownOpen && (
-              <div className="absolute left-0 w-48 mt-2 bg-black rounded-lg shadow-lg top-full dropdown-menu">
+              <div className="absolute left-0 w-48 px-6 mt-2 bg-black rounded-lg shadow-lg top-full dropdown-menu">
                 <Link
                   to="/profile"
                   className="flex items-center gap-2 p-2 hover:bg-gray-700"
                 >
-                  <FaUser /> Home
+                 <GrHomeRounded /> Home
                 </Link>
                 <Link
                   to="/settings"
                   className="flex items-center gap-2 p-2 hover:bg-gray-700"
                 >
-                  <FaCog /> Download 
+                 <FiDownloadCloud /> Download 
                 </Link>
                 <Link
                   to="/logout"
                   className="flex items-center gap-2 p-2 hover:bg-gray-700"
                 >
-                  <FaSignOutAlt /> Share
+                 <RiShareForwardLine /> Share
                 </Link>
                 <Link
                   to="/logout"
                   className="flex items-center gap-2 p-2 hover:bg-gray-700"
                 >
-                  <FaSignOutAlt /> Demo
+                 <CiPlay1 /> Demo
                 </Link>
               </div>
             )}

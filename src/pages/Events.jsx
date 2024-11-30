@@ -5,6 +5,7 @@ import ServiceHero from '../components/ServiceHero';
 import Button from '../components/Button';
 import { Carousel, Tabs } from 'antd';
 import { FaCalendarAlt, FaClock, FaUsers } from 'react-icons/fa';
+import Newsletter from '../components/Newsletter';
 
 const { TabPane } = Tabs;
 
@@ -205,6 +206,10 @@ const Events = () => {
           </Tabs>
         </div>
       </section>
+      <div className='px-6 mb-8'>
+      <Newsletter />
+      </div>
+     
       <Footer />
     </main>
   );

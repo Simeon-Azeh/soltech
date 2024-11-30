@@ -97,7 +97,7 @@ const ServicesHero = () => {
                 className="transition-all duration-500 ease-in origin-center scale-50 opacity-0 hover:scale-100 hover:opacity-100"
               >
                 <img
-                  src="img/background.png"
+                  src="img/background-ser.jpg"
                   alt="Loading preview"
                   className="object-cover object-center origin-center scale-150 size-64"
                 />
@@ -128,7 +128,7 @@ const ServicesHero = () => {
             />
           ) : (
             <img
-              src="img/background.png"
+              src="img/background-ser.jpg"
               alt="Loading preview"
               className="absolute top-0 left-0 object-cover object-center w-full h-full"
               style={{ objectFit: "cover" }}
