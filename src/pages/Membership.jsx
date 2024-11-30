@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import ServiceHero from '../components/ServiceHero';
 import Button from '../components/Button';
 import Accordion from '../components/Accordion';
-import { Carousel } from 'antd';
+import { Carousel, Rate } from 'antd';
 import { HiOutlineSparkles } from "react-icons/hi";
 import { PiHandCoinsDuotone } from "react-icons/pi";
 import { LuSparkles } from "react-icons/lu";
@@ -96,20 +96,23 @@ const Membership = () => {
           {/* Testimonials */}
           <h3 className="mt-16 mb-8 text-3xl font-bold text-center text-gray-800">What Our Members Say</h3>
           <Carousel autoplay>
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <FaQuoteLeft className="mb-4 text-3xl text-gray-400" />
-              <p className="italic text-gray-600">"Joining Soltech's membership program has been a game-changer for me. The priority access to workshops and the discounts on snacks are fantastic!"</p>
-              <p className="mt-4 text-right text-gray-800">- Jean-Pierre Mvondo</p>
+            <div className="p-6 bg-black rounded-lg md:shadow-lg">
+              <FaQuoteLeft className="mb-4 text-3xl text-white" />
+              <p className="italic text-white">"Joining Soltech's membership program has been a game-changer for me. The priority access to workshops and the discounts on snacks are fantastic!"</p>
+              <Rate disabled defaultValue={5} className="mt-4" />
+              <p className="mt-4 text-right text-white">- Jean-Pierre Mvondo</p>
             </div>
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <FaQuoteLeft className="mb-4 text-3xl text-gray-400" />
-              <p className="italic text-gray-600">"The gaming setups are top-notch, and the community support is amazing. Highly recommend the Pro Gamer plan!"</p>
-              <p className="mt-4 text-right text-gray-800">- Amina Njoya</p>
+            <div className="p-6 bg-black rounded-lg shadow-lg">
+              <FaQuoteLeft className="mb-4 text-3xl text-white" />
+              <p className="italic text-white">"The gaming setups are top-notch, and the community support is amazing. Highly recommend the Pro Gamer plan!"</p>
+              <Rate disabled defaultValue={4} className="mt-4" />
+              <p className="mt-4 text-right text-white">- Amina Njoya</p>
             </div>
-            <div className="p-6 bg-white rounded-lg shadow-lg">
+            <div className="p-6 bg-black rounded-lg shadow-lg">
               <FaQuoteLeft className="mb-4 text-3xl text-gray-400" />
-              <p className="italic text-gray-600">"The workspace environment is perfect for collaboration and innovation. The Platinum membership is worth every point!"</p>
-              <p className="mt-4 text-right text-gray-800">- Samuel Fokou</p>
+              <p className="italic text-white">"The workspace environment is perfect for collaboration and innovation. The Platinum membership is worth every point!"</p>
+              <Rate disabled defaultValue={5} className="mt-4" />
+              <p className="mt-4 text-right text-white">- Samuel Fokou</p>
             </div>
           </Carousel>
 
@@ -123,8 +126,11 @@ const Membership = () => {
             />
           </div>
 
-        
-        
+          {/* Exclusive Events and Offers */}
+          <h3 className="mt-16 mb-8 text-3xl font-bold text-center text-gray-800">Exclusive Events and Offers</h3>
+          <p className="mb-4 text-center text-gray-600">
+            As a member, you get access to exclusive events and special offers. Stay tuned for upcoming events and deals!
+          </p>
 
           {/* Membership Management */}
           <h3 className="mt-16 mb-8 text-3xl font-bold text-center text-gray-800">Membership Management</h3>
