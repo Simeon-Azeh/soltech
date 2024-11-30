@@ -7,6 +7,7 @@ import Workspaces from './pages/Workspaces';
 import ScrollToTop from './components/ScrollToTop';
 import Membership from './pages/Membership';
 import Events from './pages/Events';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/workspaces" element={<Workspaces />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/events" element={<Events />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
     </Router>
   );
