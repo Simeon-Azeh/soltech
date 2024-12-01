@@ -1,4 +1,5 @@
 import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const socialLinks = [
   { href: "https://facebook.com/SoltechAfrica", icon: <FaFacebook />, label: "Facebook" },
@@ -24,28 +25,28 @@ const Footer = () => {
           <h4 className="mb-2 text-lg font-medium text-white">Our Services</h4>
           <ul className="flex flex-col gap-2 text-sm text-center md:text-left">
             <li>
-              <a
-                href="#tech-training"
+              <Link
+                to="/tech-training"
                 className="transition-colors duration-300 hover:text-gray-500"
               >
                 Tech Training
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#gaming"
+              <Link
+                to="/gaming"
                 className="transition-colors duration-300 hover:text-gray-500"
               >
                 Gaming
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#workspaces"
+              <Link
+                to="/workspaces"
                 className="transition-colors duration-300 hover:text-gray-500"
               >
                 Workspaces & Hubs
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -53,28 +54,28 @@ const Footer = () => {
           <h4 className="mb-2 text-lg font-medium text-white">Quick links</h4>
           <ul className="flex flex-col gap-2 text-sm text-center md:text-left">
             <li>
-              <a
-                href="#tech-training"
+              <Link
+                to="/register"
                 className="transition-colors duration-300 hover:text-gray-500"
               >
-                FAQs
-              </a>
+                Register
+              </Link>
             </li>
             <li>
-              <a
-                href="#gaming"
+              <Link
+                to="/contact"
                 className="transition-colors duration-300 hover:text-gray-500"
               >
-               Contact
-              </a>
+                Contact
+              </Link>
             </li>
             <li>
-              <a
-                href="#workspaces"
+              <Link
+                to="/membership"
                 className="transition-colors duration-300 hover:text-gray-500"
               >
                 Membership
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -123,12 +124,12 @@ const Footer = () => {
           <p className="text-center md:text-left">
             © 2024 Soltech. Innovating Africa, one step at a time.
           </p>
-          <a
-            href="#privacy-policy"
+          <Link
+            to="/privacy-policy"
             className="text-center hover:underline md:text-right"
           >
             Privacy Policy
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

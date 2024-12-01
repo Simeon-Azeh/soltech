@@ -12,7 +12,7 @@ import { GrHomeRounded } from "react-icons/gr";
 import { FiDownloadCloud } from "react-icons/fi";
 import { RiShareForwardLine } from "react-icons/ri";
 import { CiPlay1 } from "react-icons/ci";
-
+import { AiOutlineLogin } from "react-icons/ai";
 
 import Button from "./Button";
 
@@ -135,12 +135,14 @@ const NavBar = () => {
               </div>
             )}
 
-            <Button
-              id="product-button"
-              title="CONTESTS"
-              rightIcon={<IoIosArrowRoundForward />}
-              containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
-            />
+            <Link to="/contests">
+              <Button
+                id="product-button"
+                title="CONTESTS"
+                rightIcon={<IoIosArrowRoundForward />}
+                containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
+              />
+            </Link>
           </div>
 
           {/* Navigation Links and Audio Button */}
@@ -155,11 +157,14 @@ const NavBar = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button
-                id="login-button"
-                title="Login"
-                containerClass="bg-blue-50 flex items-center justify-center gap-1"
-              />
+              <Link to="/login">
+                <Button
+                  id="login-button"
+                  title="Login"
+                  leftIcon={<AiOutlineLogin />}
+                  containerClass="bg-blue-50 flex items-center justify-center gap-1 md:ml-4"
+                />
+              </Link>
             </div>
 
             <button
@@ -215,17 +220,22 @@ const NavBar = () => {
               {item.name}
             </Link>
           ))}
-          <Button
-            id="product-button-mobile"
-            title="CONTESTS"
-            rightIcon={<IoIosArrowRoundForward />}
-            containerClass="bg-blue-50 flex items-center justify-center gap-1 mt-4"
-          />
-          <Button
-            id="login-button-mobile"
-            title="Login"
-            containerClass="bg-blue-50 flex items-center justify-center gap-1 mt-4"
-          />
+          <Link to="/contests">
+            <Button
+              id="product-button-mobile"
+              title="CONTESTS"
+              rightIcon={<IoIosArrowRoundForward />}
+              containerClass="bg-blue-50 flex items-center justify-center gap-1 mt-4"
+            />
+          </Link>
+          <Link to="/login">
+            <Button
+              id="login-button-mobile"
+              title="Login"
+              rightIcon={<AiOutlineLogin />}
+              containerClass="bg-blue-50 flex items-center justify-center gap-1 mt-4"
+            />
+          </Link>
         </div>
       </header>
     </div>

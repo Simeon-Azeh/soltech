@@ -8,6 +8,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Membership from './pages/Membership';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
+import Contest from './pages/Contest';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/membership" element={<Membership />} />
         <Route path="/events" element={<Events />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/contests' element={<Contest />} />
       </Routes>
     </Router>
   );

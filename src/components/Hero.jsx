@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import { TiLocationArrow } from "react-icons/ti";
 import { useEffect, useRef, useState } from "react";
+import { MdArrowOutward } from "react-icons/md";
 
 import Button from "./Button";
 import VideoPreview from "./VideoPreview";
@@ -153,7 +154,7 @@ const Hero = () => {
             <Button
               id="watch-trailer"
               title="Join Membership"
-              leftIcon={<TiLocationArrow />}
+              leftIcon={<MdArrowOutward />}
               containerClass="bg-white flex-center gap-1"
             />
           </div>
