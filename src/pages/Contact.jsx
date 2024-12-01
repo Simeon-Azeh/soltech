@@ -20,21 +20,41 @@ const Contact = () => {
     setEmail('');
     setMessage('');
   };
-
   const faqs = [
     {
-      title: 'How can I contact customer support?',
-      content: 'You can contact our customer support team via email at support@example.com or call us at +1 (123) 456-7890.',
+      title: 'What services does Soltech offer?',
+      content: 'Soltech provides a range of services, including Tech Training, Gaming, and Workspaces/Hubs. Our mission is to redefine the tech ecosystem in Africa with a gaming-inspired approach.',
+    },
+    {
+      title: 'Where is Soltech located?',
+      content: 'Our office is located in Molyko, Buea, Cameroon. Visit us for an immersive experience in gaming, tech training, or to explore our workspace options.',
+    },
+    {
+      title: 'How can I contact Soltech?',
+      content: 'You can reach us via email at contact@soltech.com or call us at +237 654 321 987. For real-time inquiries, visit us during our office hours.',
     },
     {
       title: 'What are your office hours?',
-      content: 'Our office hours are Monday to Friday, 9:00 AM to 5:00 PM.',
+      content: 'Our office hours are Monday to Saturday, 8:00 AM to 6:00 PM. We’re closed on Sundays and public holidays.',
     },
     {
-      title: 'Where is your office located?',
-      content: 'Our office is located at 123 Main Street, Anytown, USA.',
+      title: 'How do I enroll in a tech training course?',
+      content: 'Visit our website or office to view available courses and enrollment details. Our team is happy to assist you with the process.',
+    },
+    {
+      title: 'What games are available at Soltech’s gaming center?',
+      content: 'Our gaming center offers a wide selection of the latest PC, console, and VR games. Whether you’re a casual gamer or a pro, we have something for everyone.',
+    },
+    {
+      title: 'Can I rent a workspace at Soltech?',
+      content: 'Yes, we provide flexible workspace options for individuals and teams. Contact us to learn more about our packages and pricing.',
+    },
+    {
+      title: 'Does Soltech organize events or competitions?',
+      content: 'Absolutely! We host regular gaming competitions, tech hackathons, and community events. Follow us on social media for updates on upcoming events.',
     },
   ];
+  
 
   return (
     <main className="relative w-screen min-h-screen overflow-x-hidden">
@@ -88,13 +108,15 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="w-full p-6 bg-black rounded-lg md:w-1/2">
+          <h2 className='mt-4 text-xl font-semibold text-white '>Leave us a message</h2>
+          <p className='mt-2 mb-4 text-sm text-white'>We typically respond within a few hours</p>
             <form onSubmit={handleSubmit} className="flex flex-col">
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter your name"
-                className="p-2 mb-4 border border-gray-300 rounded-lg"
+                className="p-2 px-4 mb-4 text-white bg-transparent border border-white rounded-full"
                 required
               />
               <input
@@ -102,14 +124,14 @@ const Contact = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="p-2 mb-4 border border-gray-300 rounded-lg"
+                className="p-2 px-4 mb-4 text-white bg-transparent border border-white rounded-full"
                 required
               />
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Enter your message"
-                className="p-2 mb-4 border border-gray-300 rounded-lg"
+                className="p-2 px-4 mb-4 text-white bg-transparent border border-white rounded-lg"
                 rows="5"
                 required
               />
