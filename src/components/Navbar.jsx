@@ -109,7 +109,7 @@ const NavBar = () => {
             {isDropdownOpen && (
               <div className="absolute left-0 w-48 px-6 mt-2 bg-black rounded-lg shadow-lg top-full dropdown-menu">
                 <Link
-                  to="/profile"
+                  to="/"
                   className="flex items-center gap-2 p-2 hover:bg-gray-700"
                 >
                  <GrHomeRounded /> Home
@@ -127,7 +127,7 @@ const NavBar = () => {
                  <RiShareForwardLine /> Share
                 </Link>
                 <Link
-                  to="/logout"
+                  to="/"
                   className="flex items-center gap-2 p-2 hover:bg-gray-700"
                 >
                  <CiPlay1 /> Demo

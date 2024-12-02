@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Services from './pages/Services';
@@ -9,11 +10,16 @@ import Membership from './pages/Membership';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
 import Contest from './pages/Contest';
+import NavBar from './components/Navbar';
+import Footer from './components/Footer';
+import Drift from './components/Drift'; // Adjust the import path as necessary
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
+      <Drift />
+     
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
@@ -23,9 +29,10 @@ function App() {
         <Route path="/workspaces" element={<Workspaces />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/events" element={<Events />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/contests' element={<Contest />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/contests" element={<Contest />} />
       </Routes>
+     
     </Router>
   );
 }
