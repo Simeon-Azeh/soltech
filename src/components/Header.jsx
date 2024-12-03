@@ -6,6 +6,7 @@ import { auth, db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { NavLink } from 'react-router-dom';
 import { FaChalkboardTeacher, FaGamepad, FaLaptopHouse, FaBell, FaCogs } from 'react-icons/fa';
+import { IoChevronDown } from "react-icons/io5";
 
 const Navbar = () => {
   const [userName, setUserName] = useState('');
@@ -54,7 +55,7 @@ const Navbar = () => {
   );
 
   const drawerContent = (
-    <nav className="flex flex-col justify-between h-full mt-6">
+    <nav className="flex flex-col justify-between h-full mt-6 text-white bg-[#282828]">
       <ul className="space-y-4">
         <li>
           <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-gray-700 text-white' : 'block px-6 py-3 hover:bg-gray-700 hover:text-white'} onClick={closeDrawer}>
@@ -95,22 +96,22 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between w-full px-6 py-4 bg-white  md:left-64 md:w-[calc(100%-16rem)]">
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between w-full px-6 py-4 bg-[#282828] md:left-64 md:w-[calc(100%-16rem)]">
         <div className="flex items-center gap-4">
           <Button className="lg:hidden" type="primary" icon={<FaBars />} onClick={showDrawer} />
           <FaSearch className="text-gray-500" />
           <input
             type="text"
             placeholder="Search..."
-            className="px-4 py-2 text-sm border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+            className="px-4 py-2 text-sm text-gray-300 bg-[#1c1c1c] border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
           />
         </div>
         <div className="flex items-center gap-6">
-          <BellOutlined className="text-lg text-gray-500 cursor-pointer hover:text-blue-500" />
+          <BellOutlined className="text-lg text-gray-300 cursor-pointer hover:text-blue-500" />
           <Dropdown overlay={menu} trigger={['click']}>
             <div className="flex items-center gap-2 cursor-pointer">
               <Avatar icon={<UserOutlined />} />
-              <span className="hidden text-gray-800 md:inline">{userName}</span>
+              <span className="items-center hidden gap-2 text-gray-300 md:flex">{userName} <IoChevronDown /></span>
             </div>
           </Dropdown>
         </div>

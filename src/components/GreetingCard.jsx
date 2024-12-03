@@ -37,9 +37,9 @@ const GreetingCard = () => {
   }, []);
 
   return (
-    <div className="p-6 mb-6 bg-white rounded-lg ">
-      <h2 className="text-xl font-medium text-black">{greeting}, <span className='text-blue-500'>{userName}</span>!</h2>
-      <p className="mt-2 text-sm font-medium text-gray-600">
+    <div className="p-6 mb-6 bg-[#282828] rounded-lg ">
+      <h2 className="text-xl font-medium text-slate-100">{greeting}, <span className='text-slate-300'>{userName}</span>!</h2>
+      <p className="mt-2 text-sm font-medium text-slate-200">
         {message} Explore your services and manage your account with ease.
       </p>
     </div>
