@@ -7,7 +7,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { NavLink } from 'react-router-dom';
 import { FaChalkboardTeacher, FaGamepad, FaLaptopHouse, FaBell, FaCogs } from 'react-icons/fa';
 import { IoChevronDown } from "react-icons/io5";
-
+import { LayoutDashboard, Cpu, Gamepad2, MonitorCog, Bell, Settings } from 'lucide-react';
 const Navbar = () => {
   const [userName, setUserName] = useState('');
   const [visible, setVisible] = useState(false);
@@ -59,17 +59,17 @@ const Navbar = () => {
       <ul className="space-y-4">
         <li>
           <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-gray-700 text-white' : 'block px-6 py-3 hover:bg-gray-700 hover:text-white'} onClick={closeDrawer}>
-            <FaChalkboardTeacher className="inline-block mr-3" /> Dashboard
+            <LayoutDashboard className="inline-block mr-3" /> Dashboard
           </NavLink>
         </li>
         <li>
           <NavLink to="/dashboard/tech" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-gray-700 text-white' : 'block px-6 py-3 hover:bg-gray-700 hover:text-white'} onClick={closeDrawer}>
-            <FaChalkboardTeacher className="inline-block mr-3" /> Tech Training
+            <Cpu className="inline-block mr-3" /> Tech Training
           </NavLink>
         </li>
         <li>
           <NavLink to="/dashboard/gaming" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-gray-700 text-white' : 'block px-6 py-3 hover:bg-gray-700 hover:text-white'} onClick={closeDrawer}>
-            <FaGamepad className="inline-block mr-3" /> Gaming
+            <Gamepad2 className="inline-block mr-3" /> Gaming
           </NavLink>
         </li>
         <li>

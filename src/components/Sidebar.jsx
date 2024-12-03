@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FaChalkboardTeacher, FaGamepad, FaLaptopHouse, FaBell, FaCogs } from 'react-icons/fa';
 import { LogoutOutlined } from '@ant-design/icons';
 import { auth } from '../firebase';
+import { LayoutDashboard, Cpu, Gamepad2, MonitorCog, Bell, Settings } from 'lucide-react';
 
 const Sidebar = ({ onClose }) => {
   const handleLogout = () => {
@@ -17,32 +18,32 @@ const Sidebar = ({ onClose }) => {
       <ul className="space-y-4 font-medium text-slate-100">
         <li>
           <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
-            <FaChalkboardTeacher className="inline-block mr-3" /> Dashboard
+            <LayoutDashboard className="inline-block mr-3" /> Dashboard
           </NavLink>
         </li>
         <li>
           <NavLink to="/dashboard/tech" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
-            <FaChalkboardTeacher className="inline-block mr-3" /> Tech Training
+            <Cpu className="inline-block mr-3" /> Tech Training
           </NavLink>
         </li>
         <li>
           <NavLink to="/dashboard/gaming" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
-            <FaGamepad className="inline-block mr-3" /> Gaming
+            <Gamepad2 className="inline-block mr-3" /> Gaming
           </NavLink>
         </li>
         <li>
           <NavLink to="/workspaces" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
-            <FaLaptopHouse className="inline-block mr-3" /> Workspaces
+            <MonitorCog className="inline-block mr-3" /> Workspaces
           </NavLink>
         </li>
         <li>
           <NavLink to="/notifications" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
-            <FaBell className="inline-block mr-3" /> Notifications
+            <Bell className="inline-block mr-3" /> Notifications
           </NavLink>
         </li>
         <li>
           <NavLink to="/settings" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
-            <FaCogs className="inline-block mr-3" /> Settings
+            <Settings className="inline-block mr-3" /> Settings
           </NavLink>
         </li>
       </ul>
