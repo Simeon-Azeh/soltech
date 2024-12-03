@@ -13,6 +13,10 @@ import Contest from './pages/Contest';
 import NavBar from './components/Navbar';
 import Footer from './components/Footer';
 import Drift from './components/Drift'; // Adjust the import path as necessary
+import Login from './pages/Login';
+import Register from './pages/Register';
+import ForgotPassword from './pages/ForgotPassword';
+import DashboardPage from './pages/Dashboard';
 
 function App() {
   return (
@@ -31,6 +35,12 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/contests" element={<Contest />} />
+
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
      
     </Router>
