@@ -32,7 +32,7 @@ const Sidebar = ({ onClose }) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/workspaces" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
+          <NavLink to="/work" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
             <MonitorCog className="inline-block mr-3" /> Workspaces
           </NavLink>
         </li>
