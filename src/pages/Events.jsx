@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import { Carousel, Tabs } from 'antd';
 import { FaCalendarAlt, FaClock, FaUsers } from 'react-icons/fa';
 import Newsletter from '../components/Newsletter';
+import Banner from '../components/Banner';
 
 const { TabPane } = Tabs;
 
@@ -96,6 +97,7 @@ const Events = () => {
 
   return (
     <main className="relative w-screen min-h-screen overflow-x-hidden">
+    
       <NavBar />
       <ServiceHero title="Events" backgroundImage="img/events-bg.jpg" />
       <section className="px-4 py-16 md:px-8">

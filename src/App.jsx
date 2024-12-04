@@ -17,6 +17,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import DashboardPage from './pages/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute'; // Import the ProtectedRoute component
+import TechPage from './pages/Tech';
 
 function App() {
   return (
@@ -36,11 +38,11 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/contests" element={<Contest />} />
 
-
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/dashboard" element={<ProtectedRoute element={DashboardPage} />} />
+        <Route path="/tech" element={<ProtectedRoute element={TechPage} />} />
       </Routes>
      
     </Router>

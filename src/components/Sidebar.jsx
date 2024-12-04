@@ -22,7 +22,7 @@ const Sidebar = ({ onClose }) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/dashboard/tech" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
+          <NavLink to="/tech" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
             <Cpu className="inline-block mr-3" /> Tech Training
           </NavLink>
         </li>

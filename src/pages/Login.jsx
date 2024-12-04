@@ -8,6 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 import { IoLogoFacebook } from "react-icons/io5";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import CustomButton from '../components/CustomButton';
+import Banner from '../components/Banner';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -89,7 +90,7 @@ const Login = () => {
 
   return (
     <main className="relative w-screen min-h-screen overflow-x-hidden bg-white">
-    
+    <Banner />
       <section className="px-4 py-16 md:px-8">
         <div className="container mx-auto">
           <div className="max-w-lg p-6 mx-auto bg-white rounded-lg ">
@@ -172,19 +173,12 @@ const Login = () => {
                 <button
                   type="button"
                   onClick={handleGoogleSignIn}
-                  className="flex items-center justify-center w-full gap-2 p-3 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50"
+                  className="flex items-center justify-center w-full gap-2 p-3 font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50"
                 >
                   <FcGoogle size={24} />
                   Sign in with Google
                 </button>
-                <button
-                  type="button"
-                  onClick={handleFacebookSignIn}
-                  className="flex items-center justify-center w-full gap-2 p-3 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50"
-                >
-                  <IoLogoFacebook size={24} className="text-blue-600" />
-                  Sign in with Facebook
-                </button>
+               
               </div>
             </form>
 

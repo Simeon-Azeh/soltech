@@ -8,6 +8,7 @@ import CustomButton from '../components/CustomButton';
 import ServiceHero from '../components/ServiceHero';
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import Banner from '../components/Banner';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -49,12 +50,14 @@ const Register = () => {
       return;
     }
     setLoading(true);
+    const soltechID = `SOL-${Math.random().toString(36).substr(2, 9)}`;
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       await setDoc(doc(db, 'users', user.uid), {
         name,
         email,
+        soltechID,
       });
       await sendEmailVerification(user);
       setSuccessMessage(`Account created successfully. Please verify your account with the email sent to ${email}.`);
@@ -69,12 +72,14 @@ const Register = () => {
   const handleGoogleSignIn = async () => {
     setLoading(true);
     setErrorMessage('');
+    const soltechID = `SOL-${Math.random().toString(36).substr(2, 9)}`;
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
       await setDoc(doc(db, 'users', user.uid), {
         name: user.displayName,
         email: user.email,
+        soltechID,
       });
       setSuccessMessage(`Account created successfully with Google.`);
       setLoading(false);
@@ -108,7 +113,7 @@ const Register = () => {
 
   return (
     <main className="relative w-screen min-h-screen overflow-x-hidden bg-white">
-    
+    <Banner />
       <section className="px-4 py-16 md:px-8">
         <div className="container mx-auto">
           <div className="max-w-lg p-6 mx-auto bg-white rounded-lg ">
@@ -170,6 +175,8 @@ const Register = () => {
                   </button>
                 </div>
 
+                <input type="hidden" name="soltechID" value={`SOL-${Math.random().toString(36).substr(2, 9)}`} />
+
                 {errorMessage && (
                   <div className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg">
                     {errorMessage}
@@ -192,7 +199,7 @@ const Register = () => {
                   <button
                     type="button"
                     onClick={handleGoogleSignIn}
-                    className="flex items-center justify-center w-full gap-2 p-3 text-gray-800 border border-gray-300 rounded-lg hover:bg-gray-50"
+                    className="flex items-center justify-center w-full gap-2 p-3 font-medium text-gray-800 border border-gray-300 rounded-lg hover:bg-gray-50"
                   >
                    <FcGoogle size={24} />
                     Sign up with Google

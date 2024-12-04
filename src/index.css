@@ -12,6 +12,9 @@ body {
   background-color: #dfdff0;
   font-family: "General Sans", sans-serif;
 }
+.general {
+  font-family: "General Sans", sans-serif;
+}
 
 @layer base {
   @font-face {

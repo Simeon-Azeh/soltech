@@ -1,28 +1,100 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getAuth } from "firebase/auth";
+import { db } from '../firebase';
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { PiDownloadLight } from "react-icons/pi";
 
+
 const PaymentHistory = () => {
-  const statements = [
-    { date: '2023-01-15', balanceDue: 'XAF 120,000', total: 'XAF 150,000' },
-    { date: '2023-02-15', balanceDue: 'XAF 100,000', total: 'XAF 130,000' },
-  ];
+  const [statements, setStatements] = useState([]);
+  const [payments, setPayments] = useState([]);
+  const [credits, setCredits] = useState([]);
+  const [email, setEmail] = useState('');
+  const [planOverview, setPlanOverview] = useState({
+    internet: { basic: 0, pro: 0, premium: 0 },
+    gaming: { basic: 0, pro: 0, premium: 0 },
+    workspace: { basic: 0, pro: 0, premium: 0 },
+  });
 
-  const payments = [
-    { date: '2023-01-20', amount: 'XAF 120,000', method: 'Visa ending in 1234' },
-    { date: '2023-02-20', amount: 'XAF 100,000', method: 'Visa ending in 1234' },
-  ];
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const auth = getAuth();
+        const user = auth.currentUser;
+        if (user) {
+          setEmail(user.email);
 
-  const credits = [
-    { date: '2023-01-25', amount: 'XAF 30,000', description: 'Service Credit' },
-    { date: '2023-02-25', amount: 'XAF 20,000', description: 'Promotional Credit' },
-  ];
+          // Fetch subscriptions
+          const subscriptionsQuery = query(collection(db, "subscriptions"), where("email", "==", user.email));
+          const subscriptionsSnapshot = await getDocs(subscriptionsQuery);
+          const subscriptionsData = subscriptionsSnapshot.docs.map(doc => doc.data());
+
+          // Separate unpaid and paid subscriptions
+          const unpaidSubscriptions = subscriptionsData.filter(sub => !sub.paid);
+          const paidSubscriptions = subscriptionsData.filter(sub => sub.paid);
+
+          // Map unpaid subscriptions to statements
+          const statementsData = unpaidSubscriptions.map(sub => ({
+            date: sub.subscribed,
+            balanceDue: sub.plan === 'basic' ? 15000 : sub.plan === 'pro' ? 25000 : 50000,
+            total: sub.plan === 'basic' ? 15000 : sub.plan === 'pro' ? 25000 : 50000,
+          }));
+
+          // Map paid subscriptions to payments
+          const paymentsData = paidSubscriptions.map(sub => ({
+            date: sub.subscribed,
+            amount: sub.plan === 'basic' ? 15000 : sub.plan === 'pro' ? 25000 : 50000,
+            method: 'Pay at desk',
+          }));
+
+          setStatements(statementsData);
+          setPayments(paymentsData);
+
+          // Calculate service credits
+          const creditsData = subscriptionsData.map(sub => ({
+            date: sub.subscribed,
+            amount: sub.plan === 'basic' ? 250 : sub.plan === 'pro' ? 500 : 1000,
+            description: 'Service Credit',
+          }));
+          setCredits(creditsData);
+
+          // Calculate plan overview
+          const planOverviewData = {
+            internet: { basic: 0, pro: 0, premium: 0 },
+            gaming: { basic: 0, pro: 0, premium: 0 },
+            workspace: { basic: 0, pro: 0, premium: 0 },
+          };
+
+          subscriptionsData.forEach(sub => {
+            if (sub.type === 'Internet') {
+              planOverviewData.internet[sub.plan]++;
+            } else if (sub.type === 'Gaming') {
+              planOverviewData.gaming[sub.plan]++;
+            } else if (sub.type === 'Workspace') {
+              planOverviewData.workspace[sub.plan]++;
+            }
+          });
+
+          setPlanOverview(planOverviewData);
+        } else {
+          message.error("No authenticated user.");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error.message);
+        message.error(`Error: ${error.message}`);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   return (
     <div className="mt-6 space-y-6">
+    
       <div className="p-6 bg-[#282828] rounded-lg shadow-md">
         <h2 className="text-lg font-medium text-white">Statement History</h2>
         <table className="w-full mt-4 text-white">
-          <thead>
+          <thead className="border-b border-gray-500">
             <tr>
               <th className="px-4 py-2 font-medium text-left">Invoice Date</th>
               <th className="px-4 py-2 font-medium text-left">Balance Due</th>
@@ -47,7 +119,7 @@ const PaymentHistory = () => {
       <div className="p-6 bg-[#282828] rounded-lg shadow-md">
         <h2 className="text-lg font-medium text-white">Payment History</h2>
         <table className="w-full mt-4 text-white">
-          <thead>
+          <thead className="border-b border-gray-500">
             <tr>
               <th className="px-4 py-2 font-medium text-left">Payment Date</th>
               <th className="px-4 py-2 font-medium text-left">Amount</th>
@@ -66,11 +138,11 @@ const PaymentHistory = () => {
         </table>
       </div>
       <div className="p-6 bg-[#282828] rounded-lg shadow-md">
-        <h2 className="text-lg font-medium text-white">Credits Granted</h2>
+        <h2 className="text-lg font-medium text-white">Service Credits Granted</h2>
         <table className="w-full mt-4 text-white">
-          <thead>
+          <thead className="border-b border-gray-500">
             <tr>
-              <th className="px-4 py-2 font-medium text-left">Credit Date</th>
+              <th className="px-4 py-2 font-medium text-left">Subscription Date</th>
               <th className="px-4 py-2 font-medium text-left">Amount</th>
               <th className="px-4 py-2 font-medium text-left">Description</th>
             </tr>
