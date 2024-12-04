@@ -19,6 +19,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import DashboardPage from './pages/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute'; // Import the ProtectedRoute component
 import TechPage from './pages/Tech';
+import GamePage from './pages/Games';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/dashboard" element={<ProtectedRoute element={DashboardPage} />} />
         <Route path="/tech" element={<ProtectedRoute element={TechPage} />} />
+        <Route path="/games" element={<ProtectedRoute element={GamePage} />} />
       </Routes>
      
     </Router>

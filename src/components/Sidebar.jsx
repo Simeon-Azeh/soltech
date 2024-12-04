@@ -27,7 +27,7 @@ const Sidebar = ({ onClose }) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/dashboard/gaming" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
+          <NavLink to="/games" className={({ isActive }) => isActive ? 'block px-6 py-3 bg-[#1b1b1b]' : 'block px-6 py-3 hover:bg-[#1c1c1c]'} onClick={onClose}>
             <Gamepad2 className="inline-block mr-3" /> Gaming
           </NavLink>
         </li>
